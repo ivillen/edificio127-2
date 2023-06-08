@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    ...
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-babia-components/dist/aframe-babia-components.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene
+      fog="type: exponential; color: #808080; density: 0.15; near: 0; far: 40"
+    >
+
+      <a-entity movement-controls="fly: false" position="0 0 -1">
+        <a-entity camera position="0 1.4 0" look-controls></a-entity>
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+      </a-entity>
+
+      <!-- Particles 
+      <a-entity position="0 2.25 -15" particle-system="color: #EF0000,#44CC00"></a-entity> -->
+
+      <!--3D -->
+
+      <!-- Reference sphere-->
+      <a-sphere position="0 0 0" radius="0.05" color="#EF2D5E"></a-sphere>
+
+      <!--ENVIRO -->
+
+      <a-assets>
+        <a-asset-item
+          id="enviro"
+          src="https://cdn.glitch.me/a4b0fafd-698f-46c1-8bf1-5acc6c5b8f5f/edificio.glb?v=1685806441211"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-entity
+        gltf-model="#enviro"
+        scale="1 1 1"
+        position="0 0 0"
+        animation-mixer
+      ></a-entity>
+
+    </a-scene>
+  </body>
+</html>
